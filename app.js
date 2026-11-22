@@ -21,7 +21,7 @@ function validData(d){
  d.bills.every(b=>d.transactions.filter(x=>String(x.billId)===String(b.id)).length<=1);
 }
 let data;try{const parsed=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY));data=validData(parsed)?parsed:sample()}catch{data=sample()}
-function save(next){try{localStorage.setItem(KEY,JSON.stringify(next));data=next;render();return true}catch{alert('Save failed. Previous data retained. Check browser storage and export a backup.');return false}}
+function save(next){if(!validData(next)){alert('Invalid demo data. Previous records retained.');return false}try{localStorage.setItem(KEY,JSON.stringify(next));data=next;render();return true}catch{alert('Save failed. Previous data retained. Check browser storage and export a backup.');return false}}
 const $=id=>document.getElementById(id),money=n=>new Intl.NumberFormat(prefs.language==='fr'?'fr-CA':'en-US',{style:'currency',currency:prefs.currency}).format(n),num=v=>Number.isFinite(+v)?+v:0,month=()=> $('month').value;
 function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function snapshot(d,m){const tx=d.transactions.filter(x=>x.date.slice(0,7)===m);const income=tx.filter(x=>x.type==='Income').reduce((a,x)=>a+num(x.amount),0);const expenses=tx.filter(x=>x.type==='Expense').reduce((a,x)=>a+num(x.amount),0);const upcoming=d.bills.filter(x=>x.date.slice(0,7)===m&&!x.paid).reduce((a,x)=>a+num(x.amount),0);const setAside=d.goals.reduce((a,x)=>a+Math.max(0,num(x.monthly)),0);return{income,expenses,net:income-expenses,upcoming,setAside,available:income-expenses-upcoming-setAside,tx}}
