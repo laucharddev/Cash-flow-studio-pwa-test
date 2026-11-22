@@ -8,3 +8,10 @@ button,input,select{touch-action:manipulation}button:focus-visible,input:focus-v
 
 /* Official CFS brand mark */
 .brand-logo{display:block;width:52px;height:52px;flex:0 0 52px;object-fit:contain;border-radius:50%}
+
+/* In-app How to use guide */
+.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}
+.guide-grid .panel{margin:0;line-height:1.65}
+.guide-grid .panel p,.guide-safety p{font-size:13px;line-height:1.65}
+.guide-safety{border-left:4px solid #548578}
+@media(max-width:850px){.guide-grid{grid-template-columns:1fr}}
