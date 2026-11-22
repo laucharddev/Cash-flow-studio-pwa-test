@@ -30,3 +30,12 @@ Re-implemented the conceptual modules from `Cash_Flow_Studio_V2_1_Review_Pack.zi
 
 ## Commercial release gate
 NOT READY FOR SALE. No real documents or user financial data. Do not enable paid access until legal/work authorization, software security, accuracy and customer testing are complete.
+
+
+## 3.2.2 security-hardening candidate (unreleased)
+- Restrict imported record identifiers to safe integers or short alphanumeric/underscore/hyphen strings; reject malformed calendar dates.
+- Escape identifiers inserted into HTML attributes; imported data must remain fictional.
+- Import commits to browser storage before replacing in-memory data, preserving prior state on storage failure.
+- Versioned service worker cache and network-first navigation with offline fallback.
+- This is a candidate on a separate branch; no merge or production release is authorized.
+- Existing localStorage is not encrypted; do not enter real financial information.
