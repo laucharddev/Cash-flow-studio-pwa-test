@@ -5,3 +5,6 @@
 button,input,select{touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #62a68f;outline-offset:2px}
 @media(max-width:740px){.sidebar{position:sticky;top:0;z-index:5;box-shadow:0 3px 16px #0002}.sidebar nav{scrollbar-width:thin}.nav{min-height:44px}.section-head{flex-wrap:wrap}.section-head .primary{min-height:44px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.metric strong{overflow-wrap:anywhere}.pref-grid{grid-template-columns:1fr}.table-wrap{background:transparent;border:0;overflow:visible}table{min-width:0}table thead{display:none}table,table tbody,table tr,table td{display:block;width:100%}table tr{background:#fff;border:1px solid #e5ebf0;border-radius:12px;margin-bottom:12px;padding:8px 12px}table td{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right;padding:9px 2px;border-bottom:1px solid #eef2f4;overflow-wrap:anywhere}table td::before{content:attr(data-label);color:#647788;font-weight:600;text-align:left;flex-shrink:0}table td:last-child{border:0}dialog{max-height:90dvh;overflow-y:auto}header{flex-wrap:wrap}}
 @media(max-width:380px){.metrics{grid-template-columns:1fr}.metric strong{font-size:24px}}
+
+/* Official CFS brand mark */
+.brand-logo{display:block;width:52px;height:52px;flex:0 0 52px;object-fit:contain;border-radius:50%}
